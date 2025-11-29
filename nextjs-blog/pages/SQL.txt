@@ -1,0 +1,12 @@
+SELECT wp_posts.ID, wp_posts.post_title, wp_posts.post_status,
+GROUP_CONCAT(wp_postmeta.meta_key, ":", REPLACE(wp_postmeta.meta_value, ":", "" ) ) AS acf_fields
+FROM wp_posts
+
+INNER JOIN wp_postmeta
+ON wp_posts.ID = wp_postmeta.post_id
+
+WHERE wp_posts.post_status = 'publish'
+AND wp_posts.post_type = 'contact'
+AND wp_postmeta.meta_key NOT LIKE '\_%'
+
+GROUP BY wp_posts.ID
