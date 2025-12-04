@@ -5,6 +5,8 @@
  import Layout, { siteTitle } from '../components/layout';
 
  import { getSortedList } from '../lib/data/vaporwave/products';
+
+ import Link from "next/link";
  
 // Runs at build time to fetch data needed to pre-render this page.
 // Calls `getSortedPostsData()` to read and sort post metadata and
@@ -32,9 +34,9 @@ export default function Home({ allData }) {
         <h3>List of Vaporwave</h3>
         <div className="list-group">
             {allData.map(({ id, name }) => (
-                <Link key={id} href={`/${id}`}>
-               <a className="list-group-item list-group-item-action">{name}</a>
-                </Link>
+                <Link key={id} href={`/${id}`} 
+                className="list-group-item list-group-item-action">
+                {name} </Link>
             ))}
             
         </div>
