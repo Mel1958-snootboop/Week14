@@ -4,7 +4,7 @@
 // Imports the Layout component for consistent page structure and the siteTitle variable for setting the page title.
  import Layout, { siteTitle } from '../components/layout';
 
- import { getSortedList } from '../lib/data/vaporwave/products';
+ import { getSortedList } from '../lib/data';
 
  import Link from "next/link";
  
@@ -19,6 +19,7 @@ export async function getStaticProps() {
     }
   }
 }
+
 //It creates and styles the homepage, showing an introduction and a tutorial link.
 export default function Home({ allData }) {
   return (
